@@ -219,7 +219,7 @@ func (c *Card) BrandValidate() (Company, error) {
 	case ccDigits.At(4) == 5019:
 		return Company{"dankort", "Dankort"}, nil
 
-	case ccDigits.At(2) >= 51 && ccDigits.At(2) <= 55:
+	case (ccDigits.At(2) >= 51 && ccDigits.At(2) <= 55) || (ccDigits.At(6) >= 222100 && ccDigits.At(6) <= 272099):
 		return Company{"mastercard", "Mastercard"}, nil
 
 	case ccDigits.At(2) == 35:
